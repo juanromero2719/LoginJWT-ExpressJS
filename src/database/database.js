@@ -11,8 +11,12 @@ const sequelize = new Sequelize(
         port: process.env.DB_PORT,
         logging: console.log,
         dialectOptions: {
+            ssl: {
+              require: true,
+              rejectUnauthorized: false,
+            },
             useIPv6: false,
-        }
+          },
     }
 );
 
