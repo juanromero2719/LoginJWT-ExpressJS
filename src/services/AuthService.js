@@ -21,6 +21,9 @@ class AuthService {
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
+        console.log("roleData: ", roleData);    
+        console.log("roleData id: ", roleData.id);  
+
         const user = await userRepository.create({
             firstname,
             lastname,
@@ -28,6 +31,8 @@ class AuthService {
             password: hashedPassword,
             role_id: roleData.id,
         });
+
+        console.log("llego");
 
         return {
             id: user.id,
